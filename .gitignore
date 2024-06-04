@@ -1,0 +1,6 @@
+# dirs
+.venv
+
+# files
+.env
+db.sqlite3
