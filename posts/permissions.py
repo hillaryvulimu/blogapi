@@ -4,7 +4,7 @@ from rest_framework import permissions
 class IsAuthorOrReadOnly(permissions.BasePermission):
     def has_permission(self, request, view):
         # Anyone can see list view, but only authenticated users can edit/add posts
-        if not request.user.is_authenticated and request.method != 'GET':
+        if not request.user.is_authenticated and request.method not in permissions.SAFE_METHODS:
             return False 
         return True
 
