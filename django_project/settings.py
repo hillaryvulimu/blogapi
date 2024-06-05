@@ -30,6 +30,13 @@ ALLOWED_HOSTS = []
 # using custom abstract user model
 AUTH_USER_MODEL = "accounts.CustomUser"
 
+# Permissions
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    ],
+}
+
 # Application definition
 
 INSTALLED_APPS = [
