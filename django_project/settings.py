@@ -30,8 +30,9 @@ ALLOWED_HOSTS = []
 # using custom abstract user model
 AUTH_USER_MODEL = "accounts.CustomUser"
 
-# Permissions
+
 REST_FRAMEWORK = {
+    # Permissions and authentication
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticatedOrReadOnly",
     ],
@@ -39,7 +40,21 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
+
+    # schema class
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
+
+
+# drf_spectacular default metadata
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Blog API Project",
+    "DESCRIPTION": "A Blog API project using Django and DRF",
+    "VERSION": "1.0.0",
+    # 'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
+
 
 # Application definition
 
@@ -65,10 +80,12 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "dj_rest_auth.registration",
 
+    "drf_spectacular", # generates OpenAPI 3 schema for DRF
+
 
     # Local
     'accounts.apps.AccountsConfig',
-    'posts.apps.PostsConfig'
+    'posts.apps.PostsConfig',
 ]
 
 MIDDLEWARE = [
