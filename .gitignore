@@ -1,5 +1,7 @@
 # dirs
-.venv
+staticfiles
+.venv/
+__pycache__/
 
 # files
 .env
