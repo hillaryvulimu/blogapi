@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 from environs import Env
@@ -30,7 +32,12 @@ SECRET_KEY = env.str("SECRET_KEY")
 # Set to True in .env
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+# Allowed hosts, including Render's which is set automatically by Render
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ]
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 
 # using custom abstract user model
 AUTH_USER_MODEL = "accounts.CustomUser"
