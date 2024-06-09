@@ -194,9 +194,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_WHITELIST = (
-    "http://localhost:5500",
-    "http://localhost:8000",
-)
+CORS_ORIGIN_WHITELIST = env.str("CORS_ORIGIN_WHITELIST").split(',')
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost:5500"]
+CSRF_TRUSTED_ORIGINS = env.str("CSRF_TRUSTED_ORIGINS").split(',')
