@@ -76,6 +76,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.sites', #added for django-allauth
 
@@ -93,6 +95,8 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
 
     "drf_spectacular", # generates OpenAPI 3 schema for DRF
+
+    
 
 
     # Local
@@ -188,6 +192,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [ BASE_DIR / "static" ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# media files (including uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
