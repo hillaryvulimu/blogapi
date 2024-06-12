@@ -18,13 +18,13 @@ def user_uploads_path(instance, filename):
     return f'{instance.author.username}/posts_images/{new_filename}' 
 
 class Post(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, null=False, blank=False, unique=True)
     body = models.TextField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     post_pic = models.ImageField(upload_to=user_uploads_path, blank=True, null=True)
-    slug = models.SlugField(blank=True, null=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
     
     def __str__(self):
         return self.title

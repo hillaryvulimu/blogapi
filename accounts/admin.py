@@ -19,5 +19,5 @@ class CustomUserAdmin(UserAdmin):
     ]
     fieldsets = UserAdmin.fieldsets + ((None, {"fields": ('profile_pic',)}),)
     add_fieldsets = UserAdmin.add_fieldsets + ((None, {
-        "fields": ('username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'profile_pic',)
+        "fields": ('email', 'first_name', 'last_name', 'profile_pic',)
     }),)

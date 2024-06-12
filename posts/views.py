@@ -17,6 +17,7 @@ class PostViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthorOrReadOnly,)
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    lookup_field = 'slug'
 
 class UserViewSet(viewsets.ModelViewSet):
     permission_classes = IsAdminUser, # only admins can see a list of authors
