@@ -37,3 +37,5 @@ class PostSerializer(serializers.ModelSerializer):
         fields = '__all__' # ( "id", "author", "title", "body", "created_at", "post_pic", )
 
 
+class CategorySerializer(serializers.Serializer):
+    category = serializers.CharField()

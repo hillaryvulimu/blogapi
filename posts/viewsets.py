@@ -1,19 +1,18 @@
 
 from django.contrib.auth import get_user_model
 
-from rest_framework import viewsets
-
+from rest_framework import viewsets, serializers
+from rest_framework.response import Response
 from rest_framework.permissions import IsAdminUser
 
 from .permissions import IsAuthorOrReadOnly
 
 from .models import Post
 
-from .serializers import PostSerializer, UserSerializer
+from .serializers import PostSerializer, UserSerializer, CategorySerializer
 
 from .pagination import CustomPagination
 
-# Using viewsets
 class PostViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthorOrReadOnly,)
     queryset = Post.objects.all().order_by('-created_at') # return posts in desc order
