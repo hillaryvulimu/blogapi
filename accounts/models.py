@@ -18,7 +18,7 @@ def user_uploads_path(instance, filename):
 
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(blank=False, null=False)
+    email = models.EmailField(blank=False, null=False, unique=True,)
     first_name = models.CharField(max_length=30, blank=False, null=False)
     last_name = models.CharField(max_length=150, blank=False, null=False)    
     profile_pic = models.ImageField(upload_to=user_uploads_path, null=True, blank=True)

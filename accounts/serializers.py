@@ -13,6 +13,5 @@ class CustomRegisterSerializer(RegisterSerializer):
         data_dict['email'] = self.validated_data.get('email', '')
         data_dict['first_name'] = self.validated_data.get('first_name', '')
         data_dict['last_name'] = self.validated_data.get('last_name', '')
-        data_dict['profile_pic'] = self.validated_data.get('profile_pic', '')
 
         return data_dict

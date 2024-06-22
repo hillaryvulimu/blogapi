@@ -98,11 +98,11 @@ class LikeDislike(models.Model):
     class Reaction(models.TextChoices):
         LIKE = "Like", "Like"
         DISLIKE = "Dislike", "Dislike"
-        NEITHER = "Neither", 'None'
+        NEITHER = "None", 'None'
 
     post = models.ForeignKey(Post, related_name='likes_dislikes', on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    reaction = models.CharField(max_length=10, choices=Reaction.choices, default=Reaction.NEITHER)
+    reaction = models.CharField(max_length=10, choices=Reaction.choices, blank=True, null=True )
 
     class Meta:
         unique_together = [['post', 'user']]  # Ensure each user can only like/dislike a post once
