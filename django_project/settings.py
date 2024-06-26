@@ -96,9 +96,6 @@ INSTALLED_APPS = [
 
     "drf_spectacular", # generates OpenAPI 3 schema for DRF
 
-    
-
-
     # Local
     'accounts.apps.AccountsConfig',
     'posts.apps.PostsConfig',

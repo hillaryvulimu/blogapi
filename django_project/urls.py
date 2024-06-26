@@ -30,6 +30,7 @@ urlpatterns = [
     path("api/v1/dj-rest-auth/registration/", 
          include("dj_rest_auth.registration.urls")
     ),
+    path('api/user/', include('accounts.urls')),
 
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"), # to generat schema for the project
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
