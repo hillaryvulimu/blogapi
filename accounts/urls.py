@@ -1,6 +1,12 @@
-from django.urls import path
-from .views import UserProfileUpdateView
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+from .viewsets import UserProfileViewSet
+
+
+router = DefaultRouter()
+router.register('', UserProfileViewSet, basename='profile')
 
 urlpatterns = [
-    path('profile/', UserProfileUpdateView.as_view(), name='profile-update'),
+    path('', include(router.urls)),
 ]
