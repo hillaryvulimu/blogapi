@@ -4,17 +4,11 @@ from django.contrib.auth import get_user_model
 
 from django.utils.text import slugify
 
-from django.urls import reverse
-
 from rest_framework import serializers
-from rest_framework import status
-from rest_framework.test import APIClient
-from rest_framework.test import APIRequestFactory
 
 from .models import Post, Comment, LikeDislike
 
 from datetime import datetime
-from .views import UserViewSet, PostViewSet
 
 from .serializers import UserSerializer, PostSerializer, CommentSerializer, LikeDislikeSerializer
 
