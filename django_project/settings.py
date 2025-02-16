@@ -146,6 +146,7 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 
 
 # Set using dj-database-url which was installed by environs[django]
+# using Supabase db, and its DIRECT_URL for connection
 DATABASES = {
     "default": env.dj_db_url("DATABASE_URL")
 }

@@ -39,6 +39,7 @@ class Post(models.Model):
         BLUFFING = "Bluffing", "Bluffing"
         TRIVIA = "Trivia", "Trivia"
         CHILDRENS = "Children's", "Children's"
+        OTHER = "Other", "Other"
 
     title = models.CharField(max_length=100, null=False, blank=False, unique=True)
     body = models.TextField()
@@ -47,10 +48,8 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     post_pic = models.ImageField(upload_to=user_uploads_path, blank=True, null=True)
     slug = models.SlugField(unique=True, blank=True, null=True)
-    category = models.CharField(max_length=50, choices=Category.choices, default=Category.STRATEGY)
+    category = models.CharField(max_length=50, choices=Category.choices, default=Category.OTHER)
     visits_count = models.IntegerField(default=0)
-
-
     
     def __str__(self):
         return self.title
