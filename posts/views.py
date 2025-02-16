@@ -20,8 +20,12 @@ class CategoryListAPIView(generics.ListAPIView):
     serializer_class = CategorySerializer
 
     def get_queryset(self):
-        # Query all distinct categories from the Post model
-        categories = Post.objects.values_list('category', flat=True).distinct()
+        # List of all categories
+        categories = [
+            "Strategy", "Party", "Cooperative", "Deck-Building", "Abstract", "Family",
+            "Word", "Dice", "Card", "Tile-Laying",
+            "Trivia", "Children's", "Role-Playing", "Thematic", "Other"
+        ]
         
         # Convert the queryset to a list of dictionaries
         return [{'category': category} for category in categories]
